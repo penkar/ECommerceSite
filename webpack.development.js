@@ -1,6 +1,5 @@
 var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -11,7 +10,7 @@ module.exports = {
   mode:"development",
   target:'web',
   resolve: {
-    extensions: ['*','.js', '.jsx']
+    extensions: ['*','.js', '.jsx', '.react.js']
   },
   // plugins: [
   //   new HtmlWebpackPlugin({
@@ -25,6 +24,10 @@ module.exports = {
       use:{
         loader:'babel-loader'
       }
+    },{
+      test:/.scss$/,
+      exclude:/node_modules/,
+      use:['style-loader', 'css-loader', 'sass-loader']
     }]
   }
 }

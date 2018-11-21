@@ -2,6 +2,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 
+import ECommerceSite from './lib/ECommerceSite';
+require('./lib/ECommerceSite.scss');
 
-
-render(<div></div>, document.getElementById('js-mount'));
+render(<ECommerceSite/>, document.getElementById('js-mount'));
