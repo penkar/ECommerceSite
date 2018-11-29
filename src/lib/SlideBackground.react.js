@@ -1,5 +1,4 @@
 import React from 'react';
-import ChasingSunrise from '../assets/Death_to_Stock_Chasing_Sunrise_9_Julian_DeSchutter.jpg'
 
 type Props = {
   src:string
@@ -7,8 +6,9 @@ type Props = {
 
 export default class SlideBackground extends React.Component<Props> {
   render() {
+    // <img className="slide-background-component" src={ChasingSunrise}></img>
     return(
-      <img className="slide-background-component" src={ChasingSunrise}></img>
+      null
     )
   }
 }

@@ -1,0 +1,73 @@
+.HeaderRow {
+  position: fixed;
+  top:0px;
+  left:0px;
+  right:0px;
+  background-color: white;
+  z-index: 10;
+  height: 3rem;
+  background-color: #343434;
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 3rem;
+
+  .menu-icon {
+    padding: 4px 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    color: coral;
+  }
+
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    .item + .item {
+      border-left: solid 1px white;
+    }
+    .item {
+      margin: 0px 4px;
+      padding: 0px 4px;
+      .title {
+        z-index: 10;
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .expandable {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    ul {
+      padding: 18px 13px 4px 25px;
+      list-style: none;
+      list-style: bengali;
+      li { padding: 4px 6px; }
+    }
+
+    .extras {
+      z-index: 9;
+      position: absolute;
+      display: flex;
+      top: 0px;
+      left: -30vw;
+      flex-direction: column;
+      background-color: #343434;
+      opacity: 0.75;
+    }
+    &:hover .extras {
+      z-index: 11;
+      left: 0px;
+    }
+  }
+}
