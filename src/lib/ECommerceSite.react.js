@@ -1,10 +1,15 @@
 import React from 'react';
 import HeaderRow from './HeaderRow';
 import SlideBackground from './SlideBackground';
+import FloatingTitle from './FloatingTitle';
 import HashUtilities from '../utilities/hash';
-type Props = {}
+type Props = {hash:Object}
 
 export default class EcommerceSite extends React.Component<Props, {}> {
+  constructor(props) {
+    super(props);
+    this.state = {hash:HashUtilities.hashToJson()};
+  }
   componentDidMount() {
     window.addEventListener("hashchange", ()=>this.hashChange());
   }
@@ -12,11 +17,12 @@ export default class EcommerceSite extends React.Component<Props, {}> {
     return (
       <div className="ECommerceSite">
         <HeaderRow />
-        <SlideBackground />
+        <SlideBackground view={this.state.hash.view} />
+        <FloatingTitle view={this.state.hash.view} />
       </div>
     );
   }
   hashChange = () => {
-    console.log(20, window.location.hash)
+    this.setState({hash: HashUtilities.hashToJson()});
   }
 }
