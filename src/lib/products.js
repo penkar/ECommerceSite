@@ -1,5 +1,7 @@
 const products = [{
-  path:`assets/randomitem1`,
+  path:`assets/randomitem1.png`,
+  id:"00000",
+  price:200,
   title:`Coffee Pot`,
   description:`This glass container of coffee is guarnteed to give you a more active lifestyle with people who appreciate you for what you are.`,
   reviews:[{
@@ -23,7 +25,9 @@ const products = [{
   }]
 
 },{
-  path:`assets/randomitem2`,
+  path:`assets/randomitem2.png`,
+  id:"00001",
+  price:200,
   title:`A Mint Sprig?`,
   description:`Show bad breath who is boss... Eat more mint... Be the ultimate you.`,
   reviews:[{
@@ -47,7 +51,9 @@ const products = [{
   }]
 
 },{
-  path:`assets/randomitem1`,
+  path:`assets/randomitem3.png`,
+  id:"00002",
+  price:200,
   title:`A Cup of Cherries`,
   description:`Cherries are red, your heart is read. Be the best you.`,
   reviews:[{
@@ -69,6 +75,5 @@ const products = [{
     title:`Mauris consequat est quis diam semper, rutrum tempus mauris congue.`,
     description:`Vestibulum non dictum lectus. Fusce arcu nisl, aliquam sed luctus sed, mattis in lorem. Fusce maximus ornare mi, at rutrum sem. Nullam erat nulla, interdum id nulla ut, auctor luctus ante. Ut commodo feugiat dignissim. Integer et mauris varius, dignissim erat non, sagittis elit. Mauris fermentum mi at mollis sodales. Vivamus sit amet ornare lectus.`
   }]
-
 }]
 export default products;

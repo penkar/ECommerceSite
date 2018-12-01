@@ -10,28 +10,40 @@ type Props = {hash:Object}
 export default class EcommerceSite extends React.Component<Props, {}> {
   constructor(props) {
     super(props);
-    this.state = {hash:HashUtilities.hashToJson()};
+    this.state = {
+      hash:HashUtilities.hashToJson(),
+      cart:JSON.parse(localStorage.getItem('products')),
+    };
   }
   componentDidMount() {
-    window.addEventListener("hashchange", ()=>this.hashChange());
-    window.addEventListener("scroll", ()=>this.scrollChange());
+    window.addEventListener("hashchange", ()=>this._hashChange());
+    window.addEventListener("scroll", ()=>this._scrollChange());
   }
   render() {
-    const view = this.state.hash.view;
+    const {view, cart} = this.state.hash;
+    console.log({...this.state.cart})
     return (
       <div className={`ECommerceSite ${view ? "open" : "" }`}>
         <HeaderRow />
-        <SlideBackground view={view} />
         <FloatingTitle view={view} />
-        <ProductSection view={view} />
+        {[undefined, "beachwear"].indexOf(view) !== -1 &&
+          <React.Fragment>
+            <SlideBackground view={view} />
+            <ProductSection view={view} addToCart={this._addToCart} />
+          </React.Fragment> }
       </div>
     );
   }
-
-  hashChange = () => {
+  _addToCart = (item) => {
+    const cart = JSON.parse(localStorage.getItem('products'));
+    cart[item] = (cart[item] || 0) + 1;
+    localStorage.setItem('products', JSON.stringify(cart));
+    this.setState({cart});
+  }
+  _hashChange = () => {
     this.setState({hash: HashUtilities.hashToJson()});
   }
-  scrollChange = () => {
+  _scrollChange = () => {
     const hash = this.state.hash;
     if([undefined, "beachwear"].indexOf(hash.view) === -1) return null;
     if(window.pageYOffset > (window.innerHeight - 100)) {
