@@ -1,8 +1,9 @@
 import React from 'react';
-import HeaderRow from './HeaderRow';
-import SlideBackground from './SlideBackground';
+// import CartPage from './CartPage';
 import FloatingTitle from './FloatingTitle';
+import HeaderRow from './HeaderRow';
 import ProductSection from './ProductSection';
+import SlideBackground from './SlideBackground';
 
 import HashUtilities from '../utilities/hash';
 type Props = {hash:Object}
@@ -21,14 +22,13 @@ export default class EcommerceSite extends React.Component<Props, {}> {
   }
   render() {
     const {view, cart} = this.state.hash;
-    console.log({...this.state.cart})
     return (
       <div className={`ECommerceSite ${view ? "open" : "" }`}>
         <HeaderRow />
-        <FloatingTitle view={view} />
+        { FloatingTitle(view) }
         {[undefined, "beachwear"].indexOf(view) !== -1 &&
           <React.Fragment>
-            <SlideBackground view={view} />
+            { SlideBackground(view) }
             <ProductSection view={view} addToCart={this._addToCart} />
           </React.Fragment> }
       </div>
