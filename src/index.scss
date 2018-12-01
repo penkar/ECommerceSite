@@ -3,12 +3,13 @@
 @import './lib/ECommerceSite.scss';
 @import './lib/FloatingTitle.scss';
 @import './lib/HeaderRow.scss';
+@import './lib/ProductSection.scss';
 @import './lib/SlideBackground.scss';
 
 
 body, html, #js-mount {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding:0px;
   margin:0px;
   font-family: sans-serif;

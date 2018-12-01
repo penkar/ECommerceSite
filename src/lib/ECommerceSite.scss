@@ -1,9 +1,7 @@
 .ECommerceSite {
-  // background-image: url("assets/Death_to_Stock_Chasing_Sunrise_9_Julian_DeSchutter.jpg");
-  // background-attachment: fixed;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  //
-  // height: 100vh;
+  position: relative;
+  height: 200vh;
+}
+.ECommerceSite .open {
+  height: 300vh;
 }
