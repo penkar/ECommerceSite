@@ -17,6 +17,17 @@
 
   .menu-icon {
     padding: 4px 12px;
+    
+    &.search {
+      position: relative;
+      .total {
+        position: absolute;
+        bottom:0px;
+        right:0px;
+        color:orange;
+        font-size: 12px;
+      }
+    }
   }
 
   a {

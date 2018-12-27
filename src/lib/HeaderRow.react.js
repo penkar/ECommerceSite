@@ -14,10 +14,18 @@ export default class HeaderRow extends React.Component {
           <div className="item expandable">
             <span className="title">Products</span>
             <ul className="extras">
-              <li><a href={HashUtilities.jsonToHash({view:'beachwear'})}>Beach Wear</a></li>
-              <li><a href={HashUtilities.jsonToHash({view:'sunglasses'})}>Sunglasses</a></li>
-              <li><a href={HashUtilities.jsonToHash({view:'skincare'})}>Skincare</a></li>
-              <li><a href={HashUtilities.jsonToHash({view:'beachboards'})}>Beachboards</a></li>
+              <li>
+                <a href={HashUtilities.jsonToHash({view:'beachwear'})}>Beach Wear</a>
+              </li>
+              <li>
+                <a href={HashUtilities.jsonToHash({view:'sunglasses'})}>Sunglasses</a>
+              </li>
+              <li>
+                <a href={HashUtilities.jsonToHash({view:'skincare'})}>Skincare</a>
+              </li>
+              <li>
+                <a href={HashUtilities.jsonToHash({view:'beachboards'})}>Beachboards</a>
+              </li>
             </ul>
           </div>
           <div className="item">
@@ -28,13 +36,22 @@ export default class HeaderRow extends React.Component {
         </div>
         <div className="align-right content">
           <div className="menu-icon">
-            <a href={HashUtilities.jsonToHash({view:'search'})}><i className="material-icons">search</i></a>
+            <a href={HashUtilities.jsonToHash({view:'search'})}>
+              <i className="material-icons">search</i>
+            </a>
           </div>
-          <div className="menu-icon">
-            <a href={HashUtilities.jsonToHash({view:'cart'})}><i className="material-icons">shopping_cart</i></a>
+          <div className="menu-icon search">
+            <a href={HashUtilities.jsonToHash({view:'cart'})}>
+              <i className="material-icons">shopping_cart</i>
+              <span className="total">{ this._getTotalInCart() }</span>
+            </a>
           </div>
         </div>
       </div>
-    )
+    );
+  }
+  _getTotalInCart = () => {
+    const products = JSON.parse(localStorage.getItem('products')) || {};
+    return Object.values(products).reduce((x,y) => (x+y));
   }
 }
