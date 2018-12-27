@@ -21,7 +21,6 @@ export default class EcommerceSite extends React.Component<Props, {}> {
   }
   render() {
     const view = this.state.hash.view;
-    console.log(23, view);
     return (
       <div className={`ECommerceSite ${view ? "open" : "" }`}>
         <HeaderRow />
