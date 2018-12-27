@@ -49,17 +49,18 @@
     flex-direction: column;
     position: relative;
     ul {
-      padding: 18px 13px 4px 25px;
+      padding: 4px 13px 4px 25px;
       list-style: none;
       list-style: bengali;
       li { padding: 4px 6px; }
     }
 
     .extras {
+      margin:0px;
       z-index: 9;
       position: absolute;
       display: flex;
-      top: 0px;
+      top: 2rem;
       left: -30vw;
       flex-direction: column;
       background-color: #343434;

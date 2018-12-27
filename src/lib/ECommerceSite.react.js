@@ -29,13 +29,13 @@ export default class EcommerceSite extends React.Component<Props, {}> {
         {[undefined, "beachwear"].indexOf(view) !== -1 &&
           <React.Fragment>
             { SlideBackground(view) }
-            <ProductSection view={view} addToCart={this._addToCart} />
+            { ProductSection(view, this._addToCart) }
           </React.Fragment> }
       </div>
     );
   }
   _addToCart = (item) => {
-    const cart = JSON.parse(localStorage.getItem('products'));
+    const cart = JSON.parse(localStorage.getItem('products')) || {};
     cart[item] = (cart[item] || 0) + 1;
     localStorage.setItem('products', JSON.stringify(cart));
     this.setState({cart});

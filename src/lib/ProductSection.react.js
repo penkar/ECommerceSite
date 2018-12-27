@@ -5,8 +5,9 @@ const ProductSection = (view:string, addToCart:Function) => {
     const item = target.getAttribute('data');
     addToCart(item);
   }
+
   return (
-    <div className="ProductSection">
+    <div className="ProductSection" key={view}>
       <div className="products">
         { Products.map(({id, reviews, title, path, price}) => (
           <div className="product" key={title}>
