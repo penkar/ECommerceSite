@@ -21,7 +21,7 @@ export default class EcommerceSite extends React.Component<Props, {}> {
   }
   render() {
     const view = this.state.hash.view;
-    console.log(24, view);
+    console.log(23, view);
     return (
       <div className={`ECommerceSite ${view ? "open" : "" }`}>
         <HeaderRow />
@@ -31,9 +31,15 @@ export default class EcommerceSite extends React.Component<Props, {}> {
             { SlideBackground(view) }
             { ProductSection(view, this._addToCart) }
           </React.Fragment> }
-        { view === "cart" && <CartPage /> }
+        { view === "cart" && <CartPage change={this._adjustCart}/> }
       </div>
     );
+  }
+  _adjustCart = (item, value) => {
+    const cart = JSON.parse(localStorage.getItem('products')) || {};
+    cart[item] = value;
+    localStorage.setItem('products', JSON.stringify(cart));
+    this.setState({cart});
   }
   _addToCart = (item) => {
     const cart = JSON.parse(localStorage.getItem('products')) || {};
@@ -46,7 +52,7 @@ export default class EcommerceSite extends React.Component<Props, {}> {
   }
   _scrollChange = () => {
     const hash = this.state.hash;
-    if([undefined, "beachwear"].indexOf(hash.view) === -1) return null;
+    if([undefined, "beachwear", ""].indexOf(hash.view) === -1) return null;
     if(window.pageYOffset > (window.innerHeight - 100)) {
       hash.view = "beachwear";
     } else {

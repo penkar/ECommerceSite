@@ -1,11 +1,12 @@
 import React from 'react';
 import Products from './products.js';
 
-const CartItem = ([item, size]) => {
+const CartItem = ([item, size], change) => {
+  if(!size) return null;
   const product = Products.find(thing => thing.id === item), changeCount = (event) => {
-    const cart = JSON.parse(localStorage.getItem('products')) || {};
-    cart[item] = event.target.value;
-    localStorage.setItem('products', JSON.stringify(cart));
+    change(item, event.target.value);
+  }, clear = () => {
+    change(item, 0);
   }
 
   return (
@@ -28,6 +29,9 @@ const CartItem = ([item, size]) => {
           <option value={9}>9</option>
           <option value={10}>10+</option>
         </select>
+      </div>
+      <div className="clear">
+        <i className="material-icons" onClick={clear}>close</i>
       </div>
     </div>
   );
