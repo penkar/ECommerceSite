@@ -51,7 +51,7 @@ export default class HeaderRow extends React.Component {
     );
   }
   _getTotalInCart = () => {
-    const products = Object.values(JSON.parse(localStorage.getItem('products')));
+    const products = Object.values(JSON.parse(localStorage.getItem('products')||"{}"));
     if(!products || !products.length) return 0;
     return products.reduce((x,y) => (parseInt(x) + parseInt(y)));
   }

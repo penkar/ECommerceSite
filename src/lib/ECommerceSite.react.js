@@ -35,13 +35,13 @@ export default class EcommerceSite extends React.Component<Props, {}> {
     );
   }
   _adjustCart = (item, value) => {
-    const cart = JSON.parse(localStorage.getItem('products')) || {};
+    const cart = JSON.parse(localStorage.getItem('products') ||"{}");
     cart[item] = value;
     localStorage.setItem('products', JSON.stringify(cart));
     this.setState({cart});
   }
   _addToCart = (item) => {
-    const cart = JSON.parse(localStorage.getItem('products')) || {};
+    const cart = JSON.parse(localStorage.getItem('products') ||"{}");
     cart[item] = (cart[item] || 0) + 1;
     localStorage.setItem('products', JSON.stringify(cart));
     this.setState({cart});

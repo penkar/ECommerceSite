@@ -23,7 +23,7 @@ export default class CartPage extends React.Component<Props, {}> {
     );
   }
   _constructCart = () => {
-    const products = JSON.parse(localStorage.getItem('products')) || {};
+    const products = JSON.parse(localStorage.getItem('products') || "{}");
     const sortedProducts = Object.entries(products).sort((x,y) => x[0] > y[0]);
     return sortedProducts;
   }
