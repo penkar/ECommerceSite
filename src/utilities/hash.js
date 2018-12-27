@@ -1,7 +1,7 @@
 const hashToJson = () => {
   const hashState = new Object;
-  window.location.hash
-    .slice(1,-1)
+  const hash = window.location.hash;
+  hash.slice(1, hash.length)
     .split("&")
     .map(param => param.split("="))
     .forEach(([key,value]) => hashState[key] = value);

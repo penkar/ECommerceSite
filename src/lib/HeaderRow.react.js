@@ -3,6 +3,7 @@ import HashUtilities from '../utilities/hash';
 
 export default class HeaderRow extends React.Component {
   render() {
+    const total = this._getTotalInCart();
     return (
       <div className="HeaderRow">
         <div className="align-left content">
@@ -43,7 +44,7 @@ export default class HeaderRow extends React.Component {
           <div className="menu-icon search">
             <a href={HashUtilities.jsonToHash({view:'cart'})}>
               <i className="material-icons">shopping_cart</i>
-              <span className="total">{ this._getTotalInCart() }</span>
+              <span className="total">{ !!total && total }</span>
             </a>
           </div>
         </div>
@@ -51,7 +52,8 @@ export default class HeaderRow extends React.Component {
     );
   }
   _getTotalInCart = () => {
-    const products = JSON.parse(localStorage.getItem('products')) || {};
-    return Object.values(products).reduce((x,y) => (x+y));
+    const products = Object.values(JSON.parse(localStorage.getItem('products')));
+    if(!products || !products.length) return 0;
+    return products.reduce((x,y) => (x+y));
   }
 }

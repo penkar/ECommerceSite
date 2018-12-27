@@ -1,5 +1,5 @@
 import React from 'react';
-// import CartPage from './CartPage';
+import CartPage from './CartPage';
 import FloatingTitle from './FloatingTitle';
 import HeaderRow from './HeaderRow';
 import ProductSection from './ProductSection';
@@ -13,7 +13,6 @@ export default class EcommerceSite extends React.Component<Props, {}> {
     super(props);
     this.state = {
       hash:HashUtilities.hashToJson(),
-      cart:JSON.parse(localStorage.getItem('products')),
     };
   }
   componentDidMount() {
@@ -21,16 +20,18 @@ export default class EcommerceSite extends React.Component<Props, {}> {
     window.addEventListener("scroll", ()=>this._scrollChange());
   }
   render() {
-    const {view, cart} = this.state.hash;
+    const view = this.state.hash.view;
+    console.log(24, view);
     return (
       <div className={`ECommerceSite ${view ? "open" : "" }`}>
         <HeaderRow />
         { FloatingTitle(view) }
-        {[undefined, "beachwear"].indexOf(view) !== -1 &&
+        {[undefined, "beachwear", ""].indexOf(view) !== -1 &&
           <React.Fragment>
             { SlideBackground(view) }
             { ProductSection(view, this._addToCart) }
           </React.Fragment> }
+        { view === "cart" && <CartPage /> }
       </div>
     );
   }
