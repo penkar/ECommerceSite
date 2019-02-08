@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import CartItem from './CartItem'
 type Props = {
@@ -22,7 +23,7 @@ export default class CartPage extends React.Component<Props, {}> {
       </div>
     );
   }
-  _constructCart = () => {
+  _constructCart = ():Array<string> => {
     const products = JSON.parse(localStorage.getItem('products') || "{}");
     const sortedProducts = Object.entries(products).sort((x,y) => x[0] > y[0]);
     return sortedProducts;

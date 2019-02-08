@@ -1,7 +1,8 @@
+// @flow
 import React from 'react';
 import Products from './products.js';
 
-const CartItem = ([item, size], change) => {
+const CartItem = ([item, size], change):React.Node => {
   if(!size) return null;
   const product = Products.find(thing => thing.id === item), changeCount = (event) => {
     change(item, event.target.value);

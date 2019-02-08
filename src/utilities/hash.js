@@ -1,5 +1,5 @@
-const hashToJson = () => {
-  const hashState = new Object;
+const hashToJson = ():Object => {
+  const hashState = {};
   const hash = window.location.hash;
   hash.slice(1, hash.length)
     .split("&")
@@ -7,7 +7,7 @@ const hashToJson = () => {
     .forEach(([key,value]) => hashState[key] = value);
   return hashState;
 }
-const jsonToHash = (json:Object) => {
+const jsonToHash = (json:Object):string => {
   const currentURL = hashToJson(), searchString = [];
   Object.entries(json).forEach(([key, value]) => {
     searchString.push(`${key}=${value}`);

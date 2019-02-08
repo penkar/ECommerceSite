@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "css-loader": "^1.0.1",
+    "flow-bin": "^0.86.0",
     "material-icons": "^0.2.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

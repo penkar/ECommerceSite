@@ -1,7 +1,8 @@
+// @flow
 import React from 'react'
 import Products from './products.js';
-const ProductSection = (view:string, addToCart:Function) => {
-  const _addToCart = ({target}) => {
+const ProductSection = (view:string, addToCart:Function):React.Node => {
+  const _addToCart = ({target}):(string)=>any => {
     const item = target.getAttribute('data');
     addToCart(item);
   }

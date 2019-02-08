@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import CartPage from './CartPage';
 import FloatingTitle from './FloatingTitle';
@@ -9,8 +10,8 @@ import HashUtilities from '../utilities/hash';
 type Props = {hash:Object}
 
 export default class EcommerceSite extends React.Component<Props, {}> {
-  constructor(props) {
-    super(props);
+  constructor(props:Props) {
+    super(props)
     this.state = {
       hash:HashUtilities.hashToJson(),
     };

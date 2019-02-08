@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import HashUtilities from '../utilities/hash';
-export default class HeaderRow extends React.Component {
+
+export default class HeaderRow extends React.Component<{}> {
   render() {
     const total = this._getTotalInCart();
     return (
@@ -50,7 +51,7 @@ export default class HeaderRow extends React.Component {
       </div>
     );
   }
-  _getTotalInCart = () => {
+  _getTotalInCart = ():number => {
     const products = Object.values(JSON.parse(localStorage.getItem('products')||"{}"));
     if(!products || !products.length) return 0;
     return products.reduce((x,y) => (parseInt(x) + parseInt(y)));

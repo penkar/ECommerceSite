@@ -1,3 +1,5 @@
+// @flow
 import React from 'react';
-const SlideBackground = (view:string) => <div className={`SlideBackground ${view ? "lighten" : ''}`} />
+const SlideBackground = (view:string):React.Node => 
+    <div className={`SlideBackground ${view ? "lighten" : ''}`} />
 export default SlideBackground
