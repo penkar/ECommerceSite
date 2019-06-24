@@ -23,7 +23,6 @@ const products = [{
     title:`Proin sed leo ut diam euismod venenatis.`,
     description:`Nullam consectetur, arcu quis iaculis ullamcorper, diam tortor fermentum lorem, vitae suscipit purus orci eget justo. Sed porta pretium orci, sed interdum felis tincidunt a. Curabitur commodo nibh vitae leo pharetra, nec aliquet nibh bibendum. Nulla nec est quis est blandit consequat condimentum eu mauris. Curabitur laoreet, eros nec finibus dapibus, ipsum elit pharetra libero, quis tempor sapien nibh eget turpis. Vivamus quam dui, dictum ac odio ut, pretium luctus magna. Aenean nec orci sed justo blandit sodales. Suspendisse volutpat ligula id augue posuere, eu eleifend orci aliquam. Nunc eu lorem in ex pharetra varius. Pellentesque ut lectus urna. Aenean auctor egestas mollis. Donec et fermentum libero.`
   }]
-
 },{
   path:`assets/randomitem2.png`,
   id:"00001",

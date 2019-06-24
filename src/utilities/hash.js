@@ -17,7 +17,7 @@ const jsonToHash = (json:Object):string => {
 
 const HashUtilities = {
   hashToJson,
-  jsonToHash
+  jsonToHash,
 }
 
 export default HashUtilities;

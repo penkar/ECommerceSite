@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import Products from './products.js';
 const ProductSection = (view:string, addToCart:Function):React.Node => {
   const _addToCart = ({target}):(string)=>any => {

@@ -9,7 +9,7 @@ import SlideBackground from './SlideBackground';
 import HashUtilities from '../utilities/hash';
 type Props = {hash:Object}
 
-export default class EcommerceSite extends React.Component<Props, {}> {
+export default class EcommerceSite extends React.Component<Props> {
   constructor(props:Props) {
     super(props)
     this.state = {

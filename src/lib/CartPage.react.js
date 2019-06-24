@@ -5,7 +5,7 @@ type Props = {
   cart: Object,
   change: Function,
 }
-export default class CartPage extends React.Component<Props, {}> {
+export default class CartPage extends React.Component<Props> {
   render() {
     return (
       <div className="CartPage">
@@ -19,7 +19,6 @@ export default class CartPage extends React.Component<Props, {}> {
         </div>
 
         { this._constructCart().map(cartItem => CartItem(cartItem, this.props.change)) }
-
       </div>
     );
   }
